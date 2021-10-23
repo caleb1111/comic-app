@@ -9,7 +9,7 @@ const CORS_HEADER = "https://the-ultimate-api-challenge.herokuapp.com";
 const COMIC_URL = "https://xkcd.com";
 const COMIC_JSON = "info.0.json";
 
-const createComic = function (data) {
+const createComic = (data) => {
   const currentComic = data;
   return {
     month: currentComic.month,
@@ -26,30 +26,7 @@ const createComic = function (data) {
   };
 };
 
-export const getCurrentComic = async () => {
-  await fetchComic();
-};
-
-export const getRandomComic = async () => {
-  const randomId = Math.floor(Math.random() * state.latestComicNum + 1);
-  await fetchComic(randomId);
-};
-
-export const getNextComic = async () => {
-  const id = state.currentPage + 1;
-  await fetchComic(id);
-};
-
-export const getPreviousComic = async () => {
-  const id = state.currentPage - 1;
-  await fetchComic(id);
-};
-
-export const getComic = async (id) => {
-  await fetchComic(id);
-};
-
-const fetchComic = async (id = undefined) => {
+export const fetchComic = async (id = undefined) => {
   let requestUrl = "";
   if (id) {
     requestUrl = `${CORS_HEADER}/${COMIC_URL}/${id}/${COMIC_JSON}`;

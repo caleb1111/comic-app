@@ -1,18 +1,17 @@
 import * as model from "./model";
+import * as view from "./view";
 
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
 const randomBtn = document.getElementById("random");
-const comicElement = document.getElementById("comic");
 const comicSection = document.getElementsByClassName("comic_content")[0];
 
 window.addEventListener("hashchange", async () => {
   const id = window.location.hash.slice(1);
   if (!id) return;
 
-  await model.getComic(id);
-  updateUrl();
-  renderComic();
+  await model.fetchComic(id);
+  view.render(model.state);
 });
 
 window.addEventListener("load", async () => {
@@ -24,83 +23,24 @@ window.addEventListener("load", async () => {
   comicSection.style.height = `${
     containerHeight - headerHeight - footerHeight
   }px`;
-  await loadCurrentComic();
-  updateUrl();
-  renderComic();
+  await model.fetchComic();
+  view.render(model.state);
 });
 
 previousBtn.addEventListener("click", async () => {
-  await model.getPreviousComic();
-  updateUrl();
-  renderComic();
+  const id = model.state.currentPage - 1;
+  await model.fetchComic(id);
+  view.render(model.state);
 });
 
 nextBtn.addEventListener("click", async () => {
-  await model.getNextComic();
-  updateUrl();
-  renderComic();
+  const id = model.state.currentPage + 1;
+  await model.fetchComic(id);
+  view.render(model.state);
 });
 
 randomBtn.addEventListener("click", async () => {
-  await model.getRandomComic();
-  updateUrl();
-  renderComic();
+  const randomId = Math.floor(Math.random() * model.state.latestComicNum + 1);
+  await model.fetchComic(randomId);
+  view.render(model.state);
 });
-
-const renderComic = () => {
-  const { currentComic } = model.state;
-  const htmlTemplate = `
-  <h2 class="comic_title">${currentComic.title}</h2>
-          <div class="comic_img_container">
-            <div>
-              <img
-                src="${currentComic.img}"
-                alt="${currentComic.alt}"
-              />
-            </div>
-          </div>
-          <p class="comic_time"><span>Date Created: </span>${currentComic.year}/${currentComic.month}/${currentComic.day}</p>
-          <p class="comic_transcript" id="comic_transcript">
-          </p>
-  `;
-  comicElement.innerHTML = "";
-  comicElement.insertAdjacentHTML("beforeend", htmlTemplate);
-  parseTranscript(currentComic.transcript);
-};
-
-const loadCurrentComic = async () => {
-  await model.getCurrentComic();
-};
-
-const parseTranscript = (transcript) => {
-  const transcriptDiv = document.getElementById("comic_transcript");
-  let htmlTemplate = "";
-  const transcripts = transcript
-    .split("\n")
-    .filter(
-      (transcript) =>
-        transcript !== "" &&
-        !transcript.toLowerCase().includes("title text") &&
-        !transcript.toLowerCase().includes("alt")
-    )
-    .forEach((transcript) => (htmlTemplate += `<p>${transcript}</p>`));
-  transcriptDiv.insertAdjacentHTML("beforeend", htmlTemplate);
-};
-
-const updateUrl = () => {
-  const { currentComic, latestComicNum } = model.state;
-  // change ID in URL
-  window.history.pushState(null, "", `#${currentComic.num}`);
-  if (currentComic.num === latestComicNum) {
-    nextBtn.classList.add("hidden");
-  }
-  if (currentComic.num < latestComicNum) {
-    nextBtn.classList.remove("hidden");
-  }
-  if (currentComic.num === 1) {
-    previousBtn.classList.add("hidden");
-  }
-  if (currentComic.num > 1) {
-    previousBtn.classList.remove("hidden");
-  }
-};
