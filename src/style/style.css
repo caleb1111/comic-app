@@ -135,6 +135,18 @@ ul {
     grid-template-rows: none;
   }
 
+  .header {
+    height: 10vh;
+  }
+
+  .app_header {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    padding: 10px 0;
+  }
+
   .comic_content {
     height: fit-content;
   }
@@ -154,5 +166,9 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
   }
 }

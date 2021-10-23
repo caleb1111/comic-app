@@ -79,7 +79,9 @@ const parseTranscript = (transcript) => {
     .split("\n")
     .filter(
       (transcript) =>
-        transcript !== "" && !transcript.toLowerCase().includes("title text")
+        transcript !== "" &&
+        !transcript.toLowerCase().includes("title text") &&
+        !transcript.toLowerCase().includes("alt")
     )
     .forEach((transcript) => (htmlTemplate += `<p>${transcript}</p>`));
   transcriptDiv.insertAdjacentHTML("beforeend", htmlTemplate);
