@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- <link rel="shortcut icon" href="src/img/favicon.png" type="image/x-icon" /> -->
+    <script
+      src="https://kit.fontawesome.com/140e95e281.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style/style.css" />
+    <script defer type="module" src="src/js/controller.js"></script>
+
+    <title>Comic App</title>
+  </head>
+  <body>
+    <!-- Header Section -->
+    <section class="header">
+      <div class="container">
+        <h1 class="app_header">Welcome to The Comic App</h1>
+      </div>
+    </section>
+
+    <!-- Comic Content Section -->
+    <section class="comic_content">
+      <div class="container">
+        <div id="comic"></div>
+        <div class="buttons" id="buttons">
+          <div>
+            <button id="previous" class="btn">
+              <i class="fas fa-chevron-left"></i>&nbsp;Previous
+            </button>
+          </div>
+          <div>
+            <button id="random" class="btn random">
+              <i class="fas fa-dice"></i>&nbsp;Random
+            </button>
+          </div>
+          <div>
+            <button id="next" class="btn">
+              Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer">
+      <div class="container">
+        <nav>
+          <ul class="contact_info">
+            <li>
+              <h2>Find me here</h2>
+            </li>
+            <li>
+              <a href="https://github.com/caleb1111"
+                ><i id="github_icon" class="fab fa-github fa-3x"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/caleb-chen-111563141/"
+                ><i id="linkedin_icon" class="fab fa-linkedin fa-3x"></i>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+  </body>
+</html>
