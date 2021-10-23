@@ -1,0 +1,23 @@
+{
+  "name": "comic-app",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html --dist-dir ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caleb1111/comic-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caleb1111/comic-app/issues"
+  },
+  "homepage": "https://github.com/caleb1111/comic-app#readme",
+  "devDependencies": {
+    "parcel": "^2.0.0"
+  }
+}
