@@ -105,6 +105,10 @@ ul {
   gap: 1rem;
 }
 
+.fab {
+  font-size: 2rem;
+}
+
 #github_icon {
   color: rgb(245, 240, 240);
 }
@@ -152,18 +156,29 @@ ul {
     height: auto;
   }
 
+  .contact_info {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .fab {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   .buttons {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
 
-  .contact_info {
-    display: flex;
-    flex-direction: row;
-  }
-
-  h2 {
-    font-size: 1.1rem;
+  .btn {
+    font-size: 0.6rem;
+    padding: 10px 20px;
   }
 }
