@@ -127,14 +127,6 @@ ul {
   color: #0077b5;
 }
 
-.show {
-  display: block;
-}
-
-.hidden {
-  display: none;
-}
-
 @media only screen and (max-width: 768px) {
   body {
     display: grid;

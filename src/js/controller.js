@@ -1,20 +1,10 @@
 import * as model from "./model";
-import * as view from "./view";
+import paginationView from "./views/paginationView";
+import comicView from "./views/comicView";
 
-const previousBtn = document.getElementById("previous");
-const nextBtn = document.getElementById("next");
-const randomBtn = document.getElementById("random");
 const comicSection = document.getElementsByClassName("comic_content")[0];
 
-window.addEventListener("hashchange", async () => {
-  const id = window.location.hash.slice(1);
-  if (!id) return;
-
-  await model.fetchComic(id);
-  view.render(model.state);
-});
-
-window.addEventListener("load", async () => {
+const controlComicLoad = async () => {
   const containerHeight = window.innerHeight;
   const headerHeight =
     document.getElementsByClassName("header")[0].scrollHeight;
@@ -24,23 +14,28 @@ window.addEventListener("load", async () => {
     containerHeight - headerHeight - footerHeight
   }px`;
   await model.fetchComic();
-  view.render(model.state);
-});
+  comicView.render(model.state);
+  paginationView.render(model.state);
+};
 
-previousBtn.addEventListener("click", async () => {
-  const id = model.state.currentPage - 1;
+const controlComicOnHashChange = async () => {
+  const id = window.location.hash.slice(1);
+  if (!id) return;
   await model.fetchComic(id);
-  view.render(model.state);
-});
+  comicView.render(model.state);
+  paginationView.render(model.state);
+};
 
-nextBtn.addEventListener("click", async () => {
-  const id = model.state.currentPage + 1;
-  await model.fetchComic(id);
-  view.render(model.state);
-});
+const controlPagination = async (gotoPage) => {
+  await model.fetchComic(gotoPage);
+  comicView.render(model.state);
+  paginationView.render(model.state);
+};
 
-randomBtn.addEventListener("click", async () => {
-  const randomId = Math.floor(Math.random() * model.state.latestComicNum + 1);
-  await model.fetchComic(randomId);
-  view.render(model.state);
-});
+const init = function () {
+  comicView.addHandlerRenderOnload(controlComicLoad);
+  comicView.addHandlerRenderOnHashChange(controlComicOnHashChange);
+  paginationView.addHandleClick(controlPagination);
+};
+
+init();

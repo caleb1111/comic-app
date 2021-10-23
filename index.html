@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="src/style/style.css" />
+    <!-- Using defer b/c async won't wait for DOM to load,  We want to load the DOM before adding any event listeners! -->
     <script defer type="module" src="src/js/controller.js"></script>
 
     <title>Comic App</title>
@@ -27,23 +28,7 @@
     <section class="comic_content">
       <div class="container">
         <div id="comic"></div>
-        <div class="buttons" id="buttons">
-          <div>
-            <button id="previous" class="btn">
-              <i class="fas fa-chevron-left"></i>&nbsp;Previous
-            </button>
-          </div>
-          <div>
-            <button id="random" class="btn random">
-              <i class="fas fa-dice"></i>&nbsp;Random
-            </button>
-          </div>
-          <div>
-            <button id="next" class="btn">
-              Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
+        <div class="buttons" id="buttons"></div>
       </div>
     </section>
 

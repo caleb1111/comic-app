@@ -1,7 +1,6 @@
 export const state = {
   currentComic: {},
   latestComicNum: 0,
-  currentPage: 0,
 };
 
 // used https://github.com/danascript/cors-anywhere to solve the CORS issue when fetching data from xkcd api
@@ -35,7 +34,6 @@ export const fetchComic = async (id = undefined) => {
   }
   const res = await fetch(requestUrl);
   const data = await res.json();
-  state.currentPage = data.num;
   state.currentComic = createComic(data);
   if (state.latestComicNum < data.num) state.latestComicNum = data.num;
 };
