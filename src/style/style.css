@@ -13,10 +13,12 @@
 body {
   font-family: "Kalam", cursive, sans-serif;
   color: var(--dark-color);
+  /* Hidding the outer scrollbar */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
+/* Hidding the outer scrollbar */
 body::-webkit-scrollbar {
   display: none;
 }

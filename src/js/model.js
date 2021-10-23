@@ -4,8 +4,8 @@ export const state = {
   currentPage: 0,
 };
 
-// used the-ultimate-api-challenge api to solve the CORS issue when fetching data from xkcd api
-const CORS_HEADER = "https://the-ultimate-api-challenge.herokuapp.com";
+// used https://github.com/danascript/cors-anywhere to solve the CORS issue when fetching data from xkcd api
+const CORS_HEADER = "https://cors-anywhere-lambigegg.herokuapp.com";
 const COMIC_URL = "https://xkcd.com";
 const COMIC_JSON = "info.0.json";
 
