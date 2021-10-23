@@ -33,7 +33,7 @@ body::-webkit-scrollbar {
 }
 
 .app_header {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--light-color);
 }
 
@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 
 .comic_title {
   margin: 1rem 0;
-  font-size: 2rem;
+  font-size: 1.3rem;
 }
 
 .comic_time {
@@ -135,10 +135,6 @@ ul {
     grid-template-rows: none;
   }
 
-  .header {
-    height: 10vh;
-  }
-
   .app_header {
     font-size: 1.2rem;
   }
@@ -164,8 +160,7 @@ ul {
 
   .contact_info {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
+    flex-direction: row;
   }
 
   h2 {
