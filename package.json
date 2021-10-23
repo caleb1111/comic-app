@@ -17,7 +17,7 @@
     "url": "https://github.com/caleb1111/comic-app/issues"
   },
   "homepage": "https://github.com/caleb1111/comic-app#readme",
-  "devDependencies": {
+  "dependencies": {
     "parcel": "^2.0.0"
   }
 }
