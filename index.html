@@ -11,6 +11,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="src/style/style.css" />
+    <link rel="stylesheet" href="src/style/vendor/spinner.css" />
     <!-- Using defer b/c async won't wait for DOM to load,  We want to load the DOM before adding any event listeners! -->
     <script defer type="module" src="src/js/controller.js"></script>
 
@@ -27,7 +28,18 @@
     <!-- Comic Content Section -->
     <section class="comic_content">
       <div class="container">
-        <div id="comic"></div>
+        <div id="comic">
+          <div class="spinner">
+            <!-- Loading spinner taken from https://loading.io/css/ -->
+            <div class="lds-ring">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <!-- Loading spinner taken from https://loading.io/css/ -->
+          </div>
+        </div>
         <div class="buttons" id="buttons"></div>
       </div>
     </section>
