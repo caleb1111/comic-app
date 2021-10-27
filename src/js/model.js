@@ -3,7 +3,7 @@ export const state = {
   latestComicNum: 0,
 };
 
-// used https://github.com/danascript/cors-anywhere to solve the CORS issue when fetching data from xkcd api
+// used https://github.com/Rob--W/cors-anywhere to solve the CORS issue when fetching data from xkcd api
 const CORS_HEADER = "https://cors-anywhere-lambigegg.herokuapp.com";
 const COMIC_URL = "https://xkcd.com";
 const COMIC_JSON = "info.0.json";
