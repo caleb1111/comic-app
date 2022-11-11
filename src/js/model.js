@@ -4,7 +4,7 @@ export const state = {
 };
 
 // used https://github.com/Rob--W/cors-anywhere to solve the CORS issue when fetching data from xkcd api
-const CORS_HEADER = "https://cors-anywhere-lambigegg.herokuapp.com";
+const CORS_HEADER = "https://cors-anywhere-lambigegg.netlify.app";
 const COMIC_URL = "https://xkcd.com";
 const COMIC_JSON = "info.0.json";
 
