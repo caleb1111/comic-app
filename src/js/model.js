@@ -3,10 +3,9 @@ export const state = {
   latestComicNum: 0,
 };
 
-// used https://github.com/Rob--W/cors-anywhere to solve the CORS issue when fetching data from xkcd api
-const CORS_HEADER = "https://cors-anywhere-lambigegg.netlify.app";
-const COMIC_URL = "https://xkcd.com";
-const COMIC_JSON = "info.0.json";
+// TODO: CAN ADD AN ERROR PAGE TO HANDLE THE BAD REQUESTS I.E. WHERE COMIC NUMBER < 0 => NO SUCH COMIC
+const URL =
+  "https://express-cors-comics-lambigegg.netlify.app/.netlify/functions/server";
 
 const createComic = (data) => {
   const currentComic = data;
@@ -28,9 +27,9 @@ const createComic = (data) => {
 export const fetchComic = async (id = undefined) => {
   let requestUrl = "";
   if (id) {
-    requestUrl = `${CORS_HEADER}/${COMIC_URL}/${id}/${COMIC_JSON}`;
+    requestUrl = `${URL}/${id}`;
   } else {
-    requestUrl = `${CORS_HEADER}/${COMIC_URL}/${COMIC_JSON}`;
+    requestUrl = `${URL}`;
   }
   const res = await fetch(requestUrl);
   const data = await res.json();
