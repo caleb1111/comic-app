@@ -32,6 +32,7 @@ body::-webkit-scrollbar {
 
 .header {
   background: var(--dark-color);
+  height: 5vh;
 }
 
 .app_header {
@@ -42,6 +43,7 @@ body::-webkit-scrollbar {
 .comic_content {
   background: var(--light-color);
   overflow-y: scroll;
+  height: 90vh;
 }
 
 #comic {
@@ -92,6 +94,7 @@ body::-webkit-scrollbar {
 .footer {
   background: var(--dark-color);
   color: var(--light-color);
+  height: 5vh;
 }
 
 ul {
@@ -128,21 +131,12 @@ ul {
 }
 
 @media only screen and (max-width: 768px) {
-  body {
-    display: grid;
-    grid-template-rows: none;
-  }
-
   .app_header {
     font-size: 1.2rem;
   }
 
   .container {
     padding: 10px 0;
-  }
-
-  .comic_content {
-    height: fit-content;
   }
 
   img {

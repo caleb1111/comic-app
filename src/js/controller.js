@@ -2,17 +2,7 @@ import * as model from "./model";
 import paginationView from "./views/paginationView";
 import comicView from "./views/comicView";
 
-const comicSection = document.getElementsByClassName("comic_content")[0];
-
 const controlComicLoad = async () => {
-  const containerHeight = window.innerHeight;
-  const headerHeight =
-    document.getElementsByClassName("header")[0].scrollHeight;
-  const footerHeight =
-    document.getElementsByClassName("footer")[0].scrollHeight;
-  comicSection.style.height = `${
-    containerHeight - headerHeight - footerHeight
-  }px`;
   await model.fetchComic();
   comicView.render(model.state);
   paginationView.render(model.state);
