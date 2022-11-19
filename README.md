@@ -1,14 +1,16 @@
-# [Comic App](https://comic-app-lambigegg.herokuapp.com/)
+# [Comic App](https://comic-app-lambigegg.netlify.app/)
 
 - This is a simple comic app using [xkcd](https://xkcd.com/json.html) api.
 
   - Vanilla JS + Vanilla CSS
 
-  - It also uses [the ultimate api](https://the-ultimate-api-challenge.herokuapp.com/) to solve the CORS issue when fetching data from [xkcd](https://xkcd.com/json.html) api.
+  - It also uses Express as the backend to bypass the CORS issue when fetch comics from xkcd
+   
+    - The [express app](https://express-cors-comics-lambigegg.netlify.app/) is also deployed to netlify
 
-### It is hosted on heroku.
+### It is hosted on Netlify.
 
-- Here is the link: https://comic-app-lambigegg.herokuapp.com
+- Here is the link: https://comic-app-lambigegg.netlify.app/
 
 ### This is a screenshot of the app
 
