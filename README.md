@@ -6,7 +6,6 @@
 
   - It also uses Express as the backend to bypass the CORS issue when fetch comics from xkcd
    
-    - The [express app](https://express-cors-comics-lambigegg.netlify.app/) is also deployed to netlify
 
 ### It is hosted on Netlify.
 
